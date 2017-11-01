@@ -67,7 +67,7 @@
         <div class="container">
             <h1 class="display-3">Articles</h1>
             <p>
-                Here you can display list of articles. You can also add your own article<br>
+                Here you can display list of articles. You can also add your own article.<br>
                 <?php
                     if(!isset($_SESSION['user'])) { 
                         echo '<b>You need to be logged in to add an article.</b>';

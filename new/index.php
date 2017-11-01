@@ -22,6 +22,7 @@
     <script src="../libs/fontAwesome.js"></script>
     <!-- Own styles: -->
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="./new.css">
 </head>
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
@@ -41,7 +42,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="register">
+                    <a class="nav-link" href="../register">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <?php
                             if(isset($_SESSION['user'])) { 
@@ -54,7 +55,7 @@
                 </li> 
                 <?php
                     if(isset($_SESSION['user'])) { 
-                        echo '<li class="nav-item"><a href="server/logOut.php" class="nav-link logOutLink">Log out</a></li>';
+                        echo '<li class="nav-item"><a href="../server/logOut.php" class="nav-link logOutLink">Log out</a></li>';
                     }
                 ?> 
             </ul>
@@ -64,8 +65,31 @@
    <div class="jumbotron">
         <div class="container">
             <h1 class="display-3">Create article</h1>
-            <a class="btn btn-success btn-lg" href="#" role="button">Submit</a></p>
+            <p>
+                <b>Note:</b> article image is optional. If none provided, article will use default image.
+            </p>
         </div>
+   </div>
+   <div class="container">
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Title">
+                <div class="titleRow">
+                    <!-- <input type="file">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </input> -->
+                    <div class="imageUpload">
+                        <label for="imageInput">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </label>
+
+                        <input id="imageInput" type="file"/>
+                    </div>
+                </div>
+            </div>
+            <textarea class="articleContent" placeholder="Some text..."></textarea>
+            <a class="btn btn-success btn-lg" href="#" role="button">Submit</a></p>
+        </form>
    </div>
 </body>
 
