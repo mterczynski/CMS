@@ -30,7 +30,7 @@
         </button>
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Articles</a>
@@ -63,7 +63,7 @@
         </div>
     </nav>
 
-   <div class="jumbotron">
+    <div class="jumbotron">
         <div class="container">
             <h1 class="display-3">Articles</h1>
             <p>
@@ -72,8 +72,7 @@
                     if(!isset($_SESSION['user'])) { 
                         echo '<b>You need to be logged in to add an article.</b>';
                     } 
-                ?> 
-                
+                ?>      
             </p>
             <?php
                 if(isset($_SESSION['user'])) { 
@@ -81,7 +80,31 @@
                 } 
             ?> 
         </div>
-   </div>
+    </div>
+    
+    <div class="container">
+        <!-- SELECT and show articles -->
+        <?php
+            require_once('./server/connection.php');
+            $query = 'SELECT articles.*, users.login FROM articles, users WHERE articles.user_id = users.id ORDER BY articles.id DESC';
+            $connection = getNewConnection();
+            $result = mysqli_query($connection, $query);
+            while($row = mysqli_fetch_assoc($result))
+            {
+                echo 
+                "<div class='article'>";
+                if($row['image'] != null){
+                    echo '<img class="img_article" src="data:image/jpeg;base64,'.$row['image'].'" alt=""/>';
+                }
+                echo 
+                    '<div class="article__author">Author: <b>'.$row['login']."</b>, ".$row['when_created']."</div>";
+                echo
+                    "<h1>".$row['title']."</h1>"
+                    ."<div class='articleText'>".$row['text']."</div>"
+                ."</div>";
+            }
+        ?>
+    </div>  
 </body>
 
 </html>

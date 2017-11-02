@@ -1,3 +1,4 @@
+
 <?php
     session_start();
 ?>
@@ -31,7 +32,7 @@
         </button>
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class="navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="../">Articles</a>
@@ -66,29 +67,26 @@
         <div class="container">
             <h1 class="display-3">Create article</h1>
             <p>
-                <b>Note:</b> article image is optional. If none provided, article will use default image.
+                <b>Note:</b> Article image is optional. If none provided, article will use default image. Article image must be <b>jpg</b>.
             </p>
         </div>
    </div>
    <div class="container">
-        <form>
+        <form method="POST" enctype = "multipart/form-data" action="../server/addArticle.php">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Title">
-                <div class="titleRow">
-                    <!-- <input type="file">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    </input> -->
-                    <div class="imageUpload">
-                        <label for="imageInput">
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
-                        </label>
+                <input name="title" type="text" class="form-control" placeholder="Title" required>
 
-                        <input id="imageInput" type="file"/>
-                    </div>
+                <div class="imageUpload">
+                    <label for="imageInput">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    </label>
+
+                    <input name="image" id="imageInput" type="file" accept=".jpeg, .jpg"/>
                 </div>
+
             </div>
-            <textarea class="articleContent" placeholder="Some text..."></textarea>
-            <a class="btn btn-success btn-lg" href="#" role="button">Submit</a></p>
+            <textarea class="articleContent" placeholder="Some text..." name="content"></textarea>
+            <input type="submit" class="btn btn-success btn-lg" href="#" role="button" value="Submit">
         </form>
    </div>
 </body>

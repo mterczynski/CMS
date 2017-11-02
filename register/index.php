@@ -23,7 +23,7 @@
         $subject = $_REQUEST['subject'];
         $passwordHash = hash('sha256', $password);
 
-        if($subject == 'Login') {
+        if($subject == 'Login') { // user clicked on login button
 
             $query = "SELECT * FROM users WHERE login='$login' AND password='$passwordHash'";
 
@@ -31,18 +31,22 @@
 
             $result = mysqli_query($connection, $query);
             $count = mysqli_num_rows($result);
+
             if($count > 0){
                 $messageClass = "successMessage";
                 $errorMessage = "Login success";
                 header('Location: http://localhost/projekt_CMS');
+
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                 $_SESSION['user'] = $login;
+                $_SESSION['userId'] = $row['id'];
             } else {
                 $messageClass = "errorMessage";
                 $errorMessage = "Login error: invalid username or password";
             }
             $connection->close();
 
-        } else if($subject == 'Register') {
+        } else if($subject == 'Register') { // user clicked on registration button
 
             $query = "INSERT INTO users(login, password, is_admin) VALUES('$login','$passwordHash','0')";
 

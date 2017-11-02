@@ -1,3 +1,23 @@
 .logOutLink{
     color: rgb(255, 125, 125) !important;
 }
+.img_article{
+    width:100%;
+    min-width: 300px;
+    /* min-height: 100px; */
+    height: 500px;
+    /* max-height: 500px; */
+    overflow:auto;
+}
+.article{
+    position: relative;
+    margin:30px 0 30px 0;
+    padding: 30px;
+    border-bottom: 1px solid black;
+    background: rgb(220,220,220);
+}
+.article__author{
+    position: absolute;
+    right:20px;
+    top:0;
+}
