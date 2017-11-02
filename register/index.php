@@ -40,6 +40,7 @@
                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                 $_SESSION['user'] = $login;
                 $_SESSION['userId'] = $row['id'];
+                $_SESSION['userLogin'] = $login;
             } else {
                 $messageClass = "errorMessage";
                 $errorMessage = "Login error: invalid username or password";

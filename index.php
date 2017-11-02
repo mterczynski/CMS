@@ -91,8 +91,15 @@
             $result = mysqli_query($connection, $query);
             while($row = mysqli_fetch_assoc($result))
             {
+                
                 echo 
                 "<div class='article'>";
+                // edit, delete icons:
+                if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == $row['login']){
+                    echo '<img class="deleteIcon" alt="" src="assets/icon_x.png">
+                    <img src="assets/pencil.png" class="editIcon" alt="">';
+                }
+                // image:
                 if($row['image'] != null){
                     echo '<img class="img_article" src="data:image/jpeg;base64,'.$row['image'].'" alt=""/>';
                 }

@@ -10,11 +10,8 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
     $base64;
     if(isset($_FILES['image'])){
         $base64 = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-        //die('jest obrazek');
     } else {
-        $base64 = 'NULL';
-        //die('nie ma obrazka');
-        
+        $base64 = 'NULL';      
     }
     
     $title = $_POST['title'];
