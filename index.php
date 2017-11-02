@@ -90,14 +90,23 @@
             $connection = getNewConnection();
             $result = mysqli_query($connection, $query);
             while($row = mysqli_fetch_assoc($result))
-            {
-                
+            {       
                 echo 
                 "<div class='article'>";
                 // edit, delete icons:
                 if(isset($_SESSION['userLogin']) && $_SESSION['userLogin'] == $row['login']){
-                    echo '<img class="deleteIcon" alt="" src="assets/icon_x.png">
-                    <img src="assets/pencil.png" class="editIcon" alt="">';
+                    // delete button:
+                    echo '<form method="POST" action="server/delete.php">
+                            <input type="hidden" value="'.$row['id'].'" name="articleId">
+                            <input type="image" name="delete" class="deleteIcon" alt="" src="assets/icon_x.png">
+                        </form>';
+                    // edit button:
+                    echo '<form method="POST" action="edit/index.php">
+                            <input type="hidden" value="'.$row['id'].'" name="articleId">
+                            <input type="hidden" value="'.$row['text'].'" name="articleText">
+                            <input type="hidden" value="'.$row['title'].'" name="articleTitle">
+                            <input type="image" name="edit" class="editIcon" alt="" src="assets/pencil.png">
+                        </form>';
                 }
                 // image:
                 if($row['image'] != null){

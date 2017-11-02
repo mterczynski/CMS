@@ -1,0 +1,27 @@
+.articleContent{
+    width: 100%;
+    height:400px;
+    overflow: auto;
+    margin:10px 0 10px 0;
+}
+.titleRow{
+    height: 50px;
+    padding: 0;
+}
+.titleRow >*{
+    height: 50px;
+}
+.imageUpload{
+    position: relative;
+    width:50px;
+    text-align: center;
+}
+.imageUpload > label{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    line-height: 50px;
+}
+.imageUpload > input{
+    display: none;
+}
