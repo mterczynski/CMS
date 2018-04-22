@@ -35,7 +35,7 @@
             if($count > 0){
                 $messageClass = "successMessage";
                 $errorMessage = "Login success";
-                header('Location: http://localhost/projekt_CMS');
+                header('Location: http://mter.pl/cms');
 
                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                 $_SESSION['user'] = $login;

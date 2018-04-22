@@ -22,7 +22,7 @@ if (isset($_POST['title']) && isset($_POST['content'])) {
     if (!mysqli_query($connection, $query)) { // Error handling
         echo "Something went wrong! :("; 
     }
-    header('Location: http://localhost/projekt_CMS');
+    header('Location: http://mter.pl/cms');
 }
 
 ?>

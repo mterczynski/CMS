@@ -21,7 +21,7 @@
         $connection = getNewConnection();
         if($connection->query($query) === true) {
             // update successfull
-            header('Location: http://localhost/projekt_CMS');           
+            header('Location: http://mter.pl/cms');           
         } else {
             // update error
             echo 'Error with updating article :(<br>';

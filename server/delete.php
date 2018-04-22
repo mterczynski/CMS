@@ -8,7 +8,7 @@
 
         if($connection->query($query) === true) {
             echo 'Article deleted';
-            header('Location: http://localhost/projekt_CMS');
+            header('Location: http://mter.pl/cms');
         } else {
             echo 'Error: Cannot delete this article';
         }
